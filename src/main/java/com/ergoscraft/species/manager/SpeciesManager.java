@@ -2,33 +2,37 @@ package com.ergoscraft.species.manager;
 
 import com.ergoscraft.species.events.SpeciesChangedEvent;
 import com.ergoscraft.species.species.*;
-import dev.siea.ergosspecies.species.*;
 import com.ergoscraft.species.storage.Storage;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
+
 import java.util.HashMap;
 import java.util.Random;
 
 public class SpeciesManager implements Listener{
-    private HashMap<Player, Species> species = new HashMap<>();
+    private final Plugin plugin;
+    private HashMap<OfflinePlayer, Species> species = new HashMap<>();
     public SpeciesManager(Plugin plugin) {
-
+        this.plugin = plugin;
     }
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e){
-        species.put(e.getPlayer(), loadSpecies(e.getPlayer()));
+        Player player = e.getPlayer();
+        species.put(e.getPlayer(), loadSpecies(player));
+
     }
 
-    public Species getSpecies(Player player) {
+    public Species getSpecies(OfflinePlayer player) {
         return species.computeIfAbsent(player, n -> loadSpecies(player));
     }
 
-    private Species loadSpecies(Player player) {
-        return Storage.getSpecies(player) != null ? Storage.getSpecies(player) : generateSpecies(player);
+    private Species loadSpecies(OfflinePlayer player) {
+        return Storage.getSpecies(player) != null ? Storage.getSpecies(player) : generateSpecies((Player) player);
     }
     private Species generateSpecies(Player player) {
         Random random = new Random();
@@ -50,7 +54,7 @@ public class SpeciesManager implements Listener{
         return species;
     }
 
-    public void setSpecies(Player player, Species species){
+    public void setSpecies(OfflinePlayer player, Species species){
         SpeciesType type;
         try{
             type = this.species.get(player).getType();

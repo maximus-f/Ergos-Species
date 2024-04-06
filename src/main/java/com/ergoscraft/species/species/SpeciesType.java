@@ -3,9 +3,9 @@ package com.ergoscraft.species.species;
 public enum SpeciesType {
 
     HUMAN("Human"),
-    EWOK("Ewok"),
-    ELVE("Elve"),
-    TIDEWALKER("Tidewalker");
+    EWOK("§4Ewok"),
+    ELF("§eElf"),
+    TIDEWALKER("§6Tidewalker");
 
     private final String displayName;
 
