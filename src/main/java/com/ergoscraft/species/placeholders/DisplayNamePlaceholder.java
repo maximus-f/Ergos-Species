@@ -4,29 +4,24 @@ import com.ergoscraft.species.Ergos_Species;
 import com.ergoscraft.species.api.API;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class PlaceHolderManager extends PlaceholderExpansion {
+public class DisplayNamePlaceholder extends PlaceholderExpansion {
     private final API api;
     private final String identifier;
     private final String author;
     private final String version;
-    public PlaceHolderManager(Plugin plugin) {
+    public DisplayNamePlaceholder(Plugin plugin) {
         api = Ergos_Species.getApi();
-        identifier = "species";
+        identifier = "species_displayname";
         author = "ErgosSpecies";
         version = plugin.getDescription().getVersion();
     }
 
     public @Nullable String onRequest(OfflinePlayer player, @NotNull String params) {
         return api.getSpecies(player).getType().getDisplayName();
-    }
-
-    public @Nullable String onPlaceholderRequest(Player player, @NotNull String params) {
-        return "test";
     }
 
     @Override

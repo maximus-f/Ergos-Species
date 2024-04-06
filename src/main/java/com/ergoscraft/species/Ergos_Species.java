@@ -3,9 +3,9 @@ package com.ergoscraft.species;
 import com.ergoscraft.species.api.API;
 import com.ergoscraft.species.listeners.PlayerJoinListener;
 import com.ergoscraft.species.manager.SpeciesManager;
-import com.ergoscraft.species.placeholders.PlaceHolderManager;
+import com.ergoscraft.species.placeholders.DisplayNamePlaceholder;
+import com.ergoscraft.species.placeholders.TagPlaceholder;
 import com.ergoscraft.species.storage.Storage;
-import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -33,7 +33,8 @@ public final class Ergos_Species extends JavaPlugin {
         api = new API(this);
 
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            new PlaceHolderManager(this).register();
+            new DisplayNamePlaceholder(this).register();
+            new TagPlaceholder(this).register();
             placeHolderAPI = true;
             getLogger().info("Custom placeholders registered successfully.");
         } else {
