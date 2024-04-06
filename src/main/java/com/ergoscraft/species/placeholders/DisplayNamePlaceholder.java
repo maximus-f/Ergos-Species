@@ -15,13 +15,14 @@ public class DisplayNamePlaceholder extends PlaceholderExpansion {
     private final String version;
     public DisplayNamePlaceholder(Plugin plugin) {
         api = Ergos_Species.getApi();
-        identifier = "species_displayname";
+        identifier = "species";
         author = "ErgosSpecies";
         version = plugin.getDescription().getVersion();
     }
 
     public @Nullable String onRequest(OfflinePlayer player, @NotNull String params) {
-        return api.getSpecies(player).getType().getDisplayName();
+        if (params.isEmpty()) return api.getSpecies(player).getType().getDisplayName();
+        else return api.getSpecies(player).getType().getTag();
     }
 
     @Override
