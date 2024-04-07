@@ -1,6 +1,7 @@
 package com.ergoscraft.species;
 
 import com.ergoscraft.species.api.API;
+import com.ergoscraft.species.gui.GUIManager;
 import com.ergoscraft.species.listeners.PlayerJoinListener;
 import com.ergoscraft.species.manager.SpeciesManager;
 import com.ergoscraft.species.placeholders.DisplayNamePlaceholder;
@@ -28,6 +29,7 @@ public final class Ergos_Species extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(speciesManager = new SpeciesManager(this),this);
+        getServer().getPluginManager().registerEvents(new GUIManager(),this);
 
         api = new API(this);
 

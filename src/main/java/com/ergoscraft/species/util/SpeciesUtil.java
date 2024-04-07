@@ -12,11 +12,12 @@ public class SpeciesUtil {
         switch (string.toLowerCase()) {
             case "ewok":
                 return new Ewok(player);
-            case "elve":
+            case "elf":
                 return new Elf(player);
             case "tidewalker":
                 return new Tidewalker(player);
             default:
+                System.out.println("Cant find " + string);
                 return null;
         }
     }

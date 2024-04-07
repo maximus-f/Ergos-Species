@@ -18,6 +18,7 @@ public class MySQLWrapper {
         dataSource = new HikariDataSource(config);
 
         createSpeciesTable();
+        createSwapTable();
     }
 
     private void createSpeciesTable() {
@@ -25,6 +26,20 @@ public class MySQLWrapper {
             String createTableSQL = "CREATE TABLE IF NOT EXISTS Species ("
                     + "id VARCHAR(36) PRIMARY KEY,"
                     + "species VARCHAR(255)"
+                    + ")";
+            try (Statement statement = connection.createStatement()) {
+                statement.executeUpdate(createTableSQL);
+            }
+        } catch (SQLException e) {
+            Ergos_Species.log(e.getMessage());
+        }
+    }
+
+    private void createSwapTable() {
+        try (Connection connection = dataSource.getConnection()) {
+            String createTableSQL = "CREATE TABLE IF NOT EXISTS Swaps ("
+                    + "id VARCHAR(36) PRIMARY KEY,"
+                    + "swaps TINYINT"
                     + ")";
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(createTableSQL);
@@ -81,6 +96,57 @@ public class MySQLWrapper {
             statement.setString(2, id.toString());
             statement.executeUpdate();
         } catch (SQLException e){
+            Ergos_Species.log(e.getMessage());
+        }
+    }
+
+    public void setSwaps(UUID id, int swaps) {
+        try (Connection connection = dataSource.getConnection()) {
+            if (getSwaps(id) != null) {
+                updateSwaps(id, swaps, connection);
+            } else {
+                insertSwaps(id, swaps, connection);
+            }
+        } catch (SQLException e) {
+            Ergos_Species.log(e.getMessage());
+        }
+    }
+
+    public Integer getSwaps(UUID id) {
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "SELECT swaps FROM Swaps WHERE id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setString(1, id.toString());
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return resultSet.getInt("swaps");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            Ergos_Species.log(e.getMessage());
+        }
+        return null;
+    }
+
+    private void insertSwaps(UUID id, int swaps, Connection connection) throws SQLException {
+        String query = "INSERT INTO Swaps (id, swaps) VALUES (?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, id.toString());
+            statement.setInt(2, swaps);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            Ergos_Species.log(e.getMessage());
+        }
+    }
+
+    private void updateSwaps(UUID id, int swaps, Connection connection) throws SQLException {
+        String query = "UPDATE Swaps SET swaps = ? WHERE id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, swaps);
+            statement.setString(2, id.toString());
+            statement.executeUpdate();
+        } catch (SQLException e) {
             Ergos_Species.log(e.getMessage());
         }
     }

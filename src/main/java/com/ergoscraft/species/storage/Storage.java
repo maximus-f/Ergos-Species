@@ -24,6 +24,14 @@ public class Storage {
         mySQLWrapper.setSpecies(player.getUniqueId(), type.toString());
     }
 
+    public static void setSwaps(OfflinePlayer player, int swaps) {
+        mySQLWrapper.setSwaps(player.getUniqueId(), swaps);
+    }
+
+    public static int getSwaps(OfflinePlayer player) {
+        return mySQLWrapper.getSwaps(player.getUniqueId());
+    }
+
     public static void shutdown(){
         mySQLWrapper.shutdown();
     }
