@@ -6,8 +6,11 @@ import com.ergoscraft.species.listeners.PlayerJoinListener;
 import com.ergoscraft.species.manager.SpeciesManager;
 import com.ergoscraft.species.placeholders.DisplayNamePlaceholder;
 import com.ergoscraft.species.storage.Storage;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class Ergos_Species extends JavaPlugin {
 

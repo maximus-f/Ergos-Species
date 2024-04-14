@@ -53,7 +53,6 @@ public class SpeciesManager implements Listener{
     }
 
     public void reChooseSpecies(OfflinePlayer player, SpeciesType species){
-        setSpecies(player, SpeciesUtil.stringToSpecies((Player) player,species.toString()));
         int swaps = Storage.getSwaps(player);
         if (swaps > 0){
             Storage.setSwaps(player,swaps-1);

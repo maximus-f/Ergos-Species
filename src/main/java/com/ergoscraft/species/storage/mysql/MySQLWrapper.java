@@ -102,7 +102,7 @@ public class MySQLWrapper {
 
     public void setSwaps(UUID id, int swaps) {
         try (Connection connection = dataSource.getConnection()) {
-            if (getSwaps(id) != null) {
+            if (getSwaps(id) >= 0) {
                 updateSwaps(id, swaps, connection);
             } else {
                 insertSwaps(id, swaps, connection);
@@ -112,7 +112,7 @@ public class MySQLWrapper {
         }
     }
 
-    public Integer getSwaps(UUID id) {
+    public int getSwaps(UUID id) {
         try (Connection connection = dataSource.getConnection()) {
             String query = "SELECT swaps FROM Swaps WHERE id = ?";
             try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -126,7 +126,7 @@ public class MySQLWrapper {
         } catch (SQLException e) {
             Ergos_Species.log(e.getMessage());
         }
-        return null;
+        return -1;
     }
 
     private void insertSwaps(UUID id, int swaps, Connection connection) throws SQLException {

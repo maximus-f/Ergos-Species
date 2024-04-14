@@ -19,21 +19,21 @@ public class SelectSpeciesGUI {
         assert elfmeta != null;
         elfmeta.setDisplayName(SpeciesType.ELF.getDisplayName());
         elf.setItemMeta(elfmeta);
-        inv.setItem(13, elf);
+        inv.setItem(10, elf);
 
         ItemStack ewok = new ItemStack(SpeciesType.EWOK.getIcon());
         ItemMeta ewokmeta = ewok.getItemMeta();
         assert ewokmeta != null;
         ewokmeta.setDisplayName(SpeciesType.EWOK.getDisplayName());
         ewok.setItemMeta(ewokmeta);
-        inv.setItem(16, ewok);
+        inv.setItem(13, ewok);
 
         ItemStack tidewalker = new ItemStack(SpeciesType.TIDEWALKER.getIcon());
         ItemMeta tidewalkermeta = tidewalker.getItemMeta();
         assert tidewalkermeta != null;
         tidewalkermeta.setDisplayName(SpeciesType.TIDEWALKER.getDisplayName());
         tidewalker.setItemMeta(tidewalkermeta);
-        inv.setItem(10, tidewalker);
+        inv.setItem(16, tidewalker);
 
         return inv;
     }

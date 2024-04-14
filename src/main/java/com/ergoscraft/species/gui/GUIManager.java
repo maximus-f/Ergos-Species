@@ -25,7 +25,6 @@ public class GUIManager implements Listener {
                 inventory = new SelectSpeciesGUI().getInventory();
                 break;
             default:
-                System.out.println(clazz.getName());
                 return null;
         }
         inventoryClassMap.put(inventory,clazz);
@@ -52,11 +51,15 @@ public class GUIManager implements Listener {
         switch (e.getSlot())
         {
             case 10:
-                speciesManager.chooseSpecies((Player) e.getWhoClicked(), SpeciesType.TIDEWALKER);
-            case 13:
                 speciesManager.chooseSpecies((Player) e.getWhoClicked(), SpeciesType.ELF);
-            case 16:
+                break;
+            case 13:
                 speciesManager.chooseSpecies((Player) e.getWhoClicked(), SpeciesType.EWOK);
+                break;
+            case 16:
+                speciesManager.chooseSpecies((Player) e.getWhoClicked(), SpeciesType.TIDEWALKER);
+                break;
         }
+        e.getWhoClicked().closeInventory();
     }
 }
