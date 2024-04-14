@@ -1,6 +1,7 @@
 package com.ergoscraft.species.manager;
 
 import com.ergoscraft.species.events.SpeciesChangedEvent;
+import com.ergoscraft.species.messages.Messages;
 import com.ergoscraft.species.species.*;
 import com.ergoscraft.species.storage.Storage;
 import com.ergoscraft.species.util.SpeciesUtil;
@@ -60,7 +61,7 @@ public class SpeciesManager implements Listener{
         } else {
             Player p = (Player) player;
             p.closeInventory();
-            p.sendMessage("§cYou don't have any species Swaps remaining.");
+            p.sendMessage(Messages.get("noSwapsRemaining"));
         }
     }
 }

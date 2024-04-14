@@ -4,6 +4,7 @@ import com.ergoscraft.species.api.API;
 import com.ergoscraft.species.gui.GUIManager;
 import com.ergoscraft.species.listeners.PlayerJoinListener;
 import com.ergoscraft.species.manager.SpeciesManager;
+import com.ergoscraft.species.messages.Messages;
 import com.ergoscraft.species.placeholders.DisplayNamePlaceholder;
 import com.ergoscraft.species.storage.Storage;
 import org.bukkit.entity.Player;
@@ -23,6 +24,8 @@ public final class Ergos_Species extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         saveDefaultConfig();
+        saveResource("messages.yml", false);
+        Messages.onEnable(this);
         try{
             Storage.init(this);
         } catch (Exception e){
