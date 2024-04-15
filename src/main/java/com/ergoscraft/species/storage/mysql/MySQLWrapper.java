@@ -1,6 +1,6 @@
 package com.ergoscraft.species.storage.mysql;
 
-import com.ergoscraft.species.Ergos_Species;
+import com.ergoscraft.species.ErgosSpecies;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -31,7 +31,7 @@ public class MySQLWrapper {
                 statement.executeUpdate(createTableSQL);
             }
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class MySQLWrapper {
                 statement.executeUpdate(createTableSQL);
             }
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ public class MySQLWrapper {
                 insertSpecies(id, species, connection);
             }
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 
@@ -73,7 +73,7 @@ public class MySQLWrapper {
                 }
             }
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
         return null;
     }
@@ -85,7 +85,7 @@ public class MySQLWrapper {
             statement.setString(2, species);
             statement.executeUpdate();
         } catch (SQLException e){
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 
@@ -96,7 +96,7 @@ public class MySQLWrapper {
             statement.setString(2, id.toString());
             statement.executeUpdate();
         } catch (SQLException e){
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 
@@ -108,7 +108,7 @@ public class MySQLWrapper {
                 insertSwaps(id, swaps, connection);
             }
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 
@@ -124,7 +124,7 @@ public class MySQLWrapper {
                 }
             }
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
         return -1;
     }
@@ -136,7 +136,7 @@ public class MySQLWrapper {
             statement.setInt(2, swaps);
             statement.executeUpdate();
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 
@@ -147,7 +147,7 @@ public class MySQLWrapper {
             statement.setString(2, id.toString());
             statement.executeUpdate();
         } catch (SQLException e) {
-            Ergos_Species.log(e.getMessage());
+            ErgosSpecies.log(e.getMessage());
         }
     }
 

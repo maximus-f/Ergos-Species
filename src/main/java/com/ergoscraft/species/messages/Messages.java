@@ -1,6 +1,6 @@
 package com.ergoscraft.species.messages;
 
-import com.ergoscraft.species.Ergos_Species;
+import com.ergoscraft.species.ErgosSpecies;
 import com.ergoscraft.species.util.ConfigUtil;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.Plugin;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class Messages {
     private static final HashMap<String, String> messages = new HashMap<>();
     private static Plugin plugin;
-    private static final ConfigurationSection configUtil = new ConfigUtil(Ergos_Species.getPlugin(), "messages.yml").getConfig();
+    private static final ConfigurationSection configUtil = new ConfigUtil(ErgosSpecies.getPlugin(), "messages.yml").getConfig();
     public static void onEnable(Plugin plugin){
         Messages.plugin = plugin;
     }

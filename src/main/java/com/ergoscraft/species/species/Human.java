@@ -8,9 +8,7 @@ public class Human implements Species{
 
     public Human(Player player){
         this.player = player;
-        for(Entity passenger : player.getPassengers()){
-            passenger.remove();
-        }
+        
     }
     @Override
     public SpeciesType getType() {

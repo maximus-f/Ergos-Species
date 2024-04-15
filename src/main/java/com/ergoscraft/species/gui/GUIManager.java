@@ -1,6 +1,6 @@
 package com.ergoscraft.species.gui;
 
-import com.ergoscraft.species.Ergos_Species;
+import com.ergoscraft.species.ErgosSpecies;
 import com.ergoscraft.species.manager.SpeciesManager;
 import com.ergoscraft.species.species.SpeciesType;
 import org.bukkit.entity.Player;
@@ -47,7 +47,7 @@ public class GUIManager implements Listener {
     }
 
     private static void computeSelectSpecies(InventoryClickEvent e) {
-        SpeciesManager speciesManager = Ergos_Species.getSpeciesManager();
+        SpeciesManager speciesManager = ErgosSpecies.getSpeciesManager();
         switch (e.getSlot())
         {
             case 10:

@@ -8,9 +8,7 @@ public class Ewok implements Species{
     private final Player player;
     public Ewok(Player player){
         this.player = player;
-        for(Entity passenger : player.getPassengers()){
-            passenger.remove();
-        }
+
     }
     @Override
     public SpeciesType getType() {

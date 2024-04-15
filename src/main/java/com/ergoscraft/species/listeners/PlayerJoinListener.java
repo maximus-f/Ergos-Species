@@ -1,9 +1,7 @@
 package com.ergoscraft.species.listeners;
 
-import com.ergoscraft.species.Ergos_Species;
-import com.ergoscraft.species.api.API;
-import com.ergoscraft.species.gui.GUIManager;
-import com.ergoscraft.species.gui.SelectSpeciesGUI;
+import com.ergoscraft.species.ErgosSpecies;
+import com.ergoscraft.species.api.SpeciesAPI;
 import com.ergoscraft.species.messages.Messages;
 import com.ergoscraft.species.species.SpeciesType;
 import org.bukkit.event.EventHandler;
@@ -11,10 +9,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerJoinListener implements Listener {
-    private final API api;
+    private final SpeciesAPI api;
 
     public PlayerJoinListener(){
-        api = Ergos_Species.getApi();
+        api = ErgosSpecies.getApi();
     }
 
     @EventHandler

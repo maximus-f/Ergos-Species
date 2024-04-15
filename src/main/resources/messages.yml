@@ -2,4 +2,4 @@
 # Can be hot reloaded (reloaded during runtime) using /species reload
 
 selectSpeciesReminder: "§a[Villager] §eHey, I noticed you haven't picked a species yet! Execute /species to find out more!"
-noSwapsRemaining: "§cYou don't have any species Swaps remaining."
+noSwapsRemaining: "§cYou don't have any species swaps remaining."

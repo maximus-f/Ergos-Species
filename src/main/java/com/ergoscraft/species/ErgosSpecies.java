@@ -1,22 +1,19 @@
 package com.ergoscraft.species;
 
-import com.ergoscraft.species.api.API;
+import com.ergoscraft.species.api.SpeciesAPI;
 import com.ergoscraft.species.gui.GUIManager;
 import com.ergoscraft.species.listeners.PlayerJoinListener;
 import com.ergoscraft.species.manager.SpeciesManager;
 import com.ergoscraft.species.messages.Messages;
 import com.ergoscraft.species.placeholders.DisplayNamePlaceholder;
 import com.ergoscraft.species.storage.Storage;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Objects;
-
-public final class Ergos_Species extends JavaPlugin {
+public final class ErgosSpecies extends JavaPlugin {
 
     private static Plugin plugin;
-    private static API api;
+    private static SpeciesAPI api;
     private static Boolean placeHolderAPI;
     private static SpeciesManager speciesManager;
 
@@ -37,7 +34,7 @@ public final class Ergos_Species extends JavaPlugin {
         getServer().getPluginManager().registerEvents(speciesManager = new SpeciesManager(this),this);
         getServer().getPluginManager().registerEvents(new GUIManager(),this);
 
-        api = new API(this);
+        api = new SpeciesAPI(this);
 
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new DisplayNamePlaceholder(this).register();
@@ -64,7 +61,7 @@ public final class Ergos_Species extends JavaPlugin {
         return plugin;
     }
 
-    public static API getApi(){
+    public static SpeciesAPI getApi(){
         return api;
     }
 

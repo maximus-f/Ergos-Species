@@ -1,7 +1,7 @@
 package com.ergoscraft.species.placeholders;
 
-import com.ergoscraft.species.Ergos_Species;
-import com.ergoscraft.species.api.API;
+import com.ergoscraft.species.ErgosSpecies;
+import com.ergoscraft.species.api.SpeciesAPI;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.Plugin;
@@ -9,12 +9,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DisplayNamePlaceholder extends PlaceholderExpansion {
-    private final API api;
+    private final SpeciesAPI api;
     private final String identifier;
     private final String author;
     private final String version;
     public DisplayNamePlaceholder(Plugin plugin) {
-        api = Ergos_Species.getApi();
+        api = ErgosSpecies.getApi();
         identifier = "species";
         author = "ErgosSpecies";
         version = plugin.getDescription().getVersion();
